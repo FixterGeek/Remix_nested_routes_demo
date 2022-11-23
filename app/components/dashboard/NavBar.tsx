@@ -8,7 +8,7 @@ const NavBar = ({ pathname }: NavBarProps) => {
     <aside className='bg-indigo-500 w-[150px] h-screen fixed flex flex-col justify-between'>
       <img src='https://i.imgur.com/eyDw5r4.png' alt='logo' className='mb-12' />
       <div className='mb-auto'>
-        <NavButton>Dashboard</NavButton>
+        <NavButton to='products'>Products</NavButton>
         <NavButton isActive={pathname?.includes('sales')} to='sales'>
           Sales
         </NavButton>
