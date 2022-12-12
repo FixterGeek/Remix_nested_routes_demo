@@ -5,12 +5,12 @@ import { db } from "~/db/db.server";
 
 export async function loader() {
     const products = await db.product.findMany({ take: 5 });
-    return { data: products };
+    return { products };
 }
 
 export default function Products() {
     const data = useLoaderData();
-    const { products } = data as { products: Product[] };
+    const { products = [] } = data as { products: Product[] };
 
     return (
         <section className='p-20'>
@@ -24,7 +24,7 @@ export default function Products() {
                         ))}
                     </div>
                 </section>
-                <section>
+                <section className="rounded border-2 border-indigo-100 ml-2">
                     <Outlet />
                 </section>
             </section>

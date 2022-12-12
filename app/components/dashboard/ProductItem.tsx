@@ -27,7 +27,7 @@ const ProductItem = ({
                     ))}
                 </section>
             </div>
-            <div className={`text-left w-2  /3`}>
+            <div className={`text-left w-2/3`}>
                 <h2 className='font-semibold'>{body}</h2>
                 <p
                     className={`text-xs font-semibold uppercase`}

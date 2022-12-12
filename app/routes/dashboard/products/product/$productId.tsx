@@ -1,8 +1,9 @@
-import { LoaderFunction } from "@remix-run/node";
+import type { Product } from "@prisma/client";
+import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { db } from "~/db/db.server";
 
-export function ErrorBoundary({ error }: { error: { message: string } }) {
+export function ErrorBoundary() {
     return (
         <div className='p-12 min-w-[240px] bg-pink-100'>
             <h1 className="text-red-500 text-2xl mb-4">Ups!</h1>
@@ -18,18 +19,18 @@ export const loader: LoaderFunction = async ({ params }) => {
             id: params.productId,
         },
     })
-    return product
+    return { product };
 };
 
 export default function ProductId() {
-    const {
-        body,
+    const { product } = useLoaderData();
+    const { body,
         color,
         images,
         name,
         price,
-        stars,
-    } = useLoaderData();
+        stars } = product as Product;
+
     return (
         <div className='p-12 min-w-[240px]'>
             <h3 className='font-semibold'>{name}</h3>

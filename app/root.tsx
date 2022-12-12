@@ -1,4 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
+import notFoundImage from '~/../public/diedRobot.jpeg';
 import {
   Links,
   LiveReload,
@@ -19,7 +20,6 @@ export const links = () => [
 
 export function CatchBoundary() {
   const caught = useCatch();
-  const notFoundImage = require('/diedRobot.jpeg')
   return (
     <html>
       <head>
